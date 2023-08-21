@@ -39,14 +39,15 @@ public class RecipeController {
 
     @Operation(summary = "Retrieve all recipes paginated",
             description = "Get all recipes collections in pagination",
-            tags = {"Movie"})
+            tags = {"Recipe"})
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = Recipe.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
-    public List<RecipeResponse> getMovies(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
+    public List<RecipeResponse> getRecipes(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
         return recipeService.get(page != null ? page : 0, limit != null ? limit : 1);
     }
+
 }

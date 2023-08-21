@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
 
 @Data
@@ -22,10 +23,10 @@ public class RecipeResponse {
     private Origin origin;
     private String name;
     private String totalTime;
-    private Timestamp datePublished;
+    private String datePublished;
     private String description;
-//    private List<String> images;
-//    private List<String> keywords;
+    private String images;
+    private String keywords;
     private Float rating;
     private Integer reviewCount;
     private Float calories;
@@ -38,7 +39,7 @@ public class RecipeResponse {
     private Float sugar;
     private Float protein;
     private String recipeYield;
-//    private List<String> instructions;
-//    private JsonNode ingredients;
+    private String instructions;
+    private String ingredients;
     private Integer recipeId;
 }

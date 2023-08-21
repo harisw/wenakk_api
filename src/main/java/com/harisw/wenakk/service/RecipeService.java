@@ -10,7 +10,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,10 +45,10 @@ public class RecipeService {
                 .id(recipe.getId())
                 .name(recipe.getName())
                 .totalTime(recipe.getTotalTime())
-                .datePublished(recipe.getDatePublished())
+                .datePublished(formatDate(recipe.getDatePublished()))
                 .description(recipe.getDescription())
-//                .images(recipe.getImages())
-//                .keywords(recipe.getKeywords())
+                .images(recipe.getImages())
+                .keywords(recipe.getKeywords())
                 .rating(recipe.getRating())
                 .reviewCount(recipe.getReviewCount())
                 .calories(recipe.getCalories())
@@ -59,8 +61,13 @@ public class RecipeService {
                 .sugar(recipe.getSugar())
                 .protein(recipe.getProtein())
                 .recipeYield(recipe.getRecipeYield())
-//                .instructions(recipe.getInstructions())
-//                .ingredients(recipe.getIngredients())
+                .instructions(recipe.getInstructions())
+                .ingredients(recipe.getIngredients())
                 .recipeId(recipe.getRecipeId()).build();
+    }
+    private String formatDate(Date inpDate) {
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        return simpleDateFormat.format(inpDate);
     }
 }

@@ -1,15 +1,15 @@
 package com.harisw.wenakk.model;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.harisw.wenakk.helpers.JsonHandler;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
+import java.util.Date;
+import java.util.HashMap;
 
 @Entity
 @Table(name = "recipes")
@@ -29,13 +29,10 @@ public class Recipe {
     private Origin origin;
     private String name;
     private String totalTime;
-//    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp datePublished;
+    private Date datePublished;
     private String description;
-//    private List<String> images;
-//    private List<String> keywords;
-//    private JsonNode images;
-//    private JsonNode keywords;
+    private String images;
+    private String keywords;
     private Float rating;
     @Column(name = "reviewCount")
     private Integer reviewCount;
@@ -50,8 +47,8 @@ public class Recipe {
     private Float sugar;
     private Float protein;
     private String recipeYield;
-//    private List<String> instructions;
-//    private JsonNode ingredients;
+    private String instructions;
+    private String ingredients;
     private Integer recipeId;
 
 }
